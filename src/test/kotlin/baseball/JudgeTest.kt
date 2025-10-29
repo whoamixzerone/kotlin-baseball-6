@@ -1,16 +1,25 @@
 package baseball
 
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 class JudgeTest {
+
+    lateinit var judge: Judge
+
+    @BeforeEach
+    fun setUp() {
+        judge = Judge()
+    }
+
     @Test
     fun `3 스트라이크`() {
         // given
-        val judge = Judge()
+        val player = Player("425")
 
         // when
-        val result = judge.compare("425", "425")
+        val result = judge.compare(player, mutableListOf(4, 2, 5))
 
         // then
         assertThat(result).isEqualTo("3스트라이크")
@@ -19,10 +28,10 @@ class JudgeTest {
     @Test
     fun `2 스트라이크`() {
         // given
-        val judge = Judge()
+        val player = Player("421")
 
         // when
-        val result = judge.compare("421", "425")
+        val result = judge.compare(player, mutableListOf(4, 2, 5))
 
         // then
         assertThat(result).isEqualTo("2스트라이크")
@@ -31,10 +40,10 @@ class JudgeTest {
     @Test
     fun `1 스트라이크`() {
         // given
-        val judge = Judge()
+        val player = Player("461")
 
         // when
-        val result = judge.compare("461", "425")
+        val result = judge.compare(player, mutableListOf(4, 2, 5))
 
         // then
         assertThat(result).isEqualTo("1스트라이크")
@@ -43,10 +52,10 @@ class JudgeTest {
     @Test
     fun `3 볼`() {
         // given
-        val judge = Judge()
+        val player = Player("254")
 
         // when
-        val result = judge.compare("254", "425")
+        val result = judge.compare(player, mutableListOf(4, 2, 5))
 
         // then
         assertThat(result).isEqualTo("3볼")
@@ -55,10 +64,10 @@ class JudgeTest {
     @Test
     fun `2 볼`() {
         // given
-        val judge = Judge()
+        val player = Player("456")
 
         // when
-        val result = judge.compare("251", "425")
+        val result = judge.compare(player, mutableListOf(5, 4, 7))
 
         // then
         assertThat(result).isEqualTo("2볼")
@@ -67,10 +76,10 @@ class JudgeTest {
     @Test
     fun `1 볼`() {
         // given
-        val judge = Judge()
+        val player = Player("651")
 
         // when
-        val result = judge.compare("651", "425")
+        val result = judge.compare(player, mutableListOf(4, 2, 5))
 
         // then
         assertThat(result).isEqualTo("1볼")
@@ -79,10 +88,10 @@ class JudgeTest {
     @Test
     fun `1 볼 1 스트라이크`() {
         // given
-        val judge = Judge()
+        val player = Player("451")
 
         // when
-        val result = judge.compare("451", "425")
+        val result = judge.compare(player, mutableListOf(4, 2, 5))
 
         // then
         assertThat(result).isEqualTo("1볼 1스트라이크")
@@ -91,10 +100,10 @@ class JudgeTest {
     @Test
     fun `2 볼 1 스트라이크`() {
         // given
-        val judge = Judge()
+        val player = Player("452")
 
         // when
-        val result = judge.compare("452", "425")
+        val result = judge.compare(player, mutableListOf(4, 2, 5))
 
         // then
         assertThat(result).isEqualTo("2볼 1스트라이크")
@@ -103,10 +112,10 @@ class JudgeTest {
     @Test
     fun `낫싱`() {
         // given
-        val judge = Judge()
+        val player = Player("136")
 
         // when
-        val result = judge.compare("136", "425")
+        val result = judge.compare(player, mutableListOf(4, 2, 5))
 
         // then
         assertThat(result).isEqualTo("낫싱")
