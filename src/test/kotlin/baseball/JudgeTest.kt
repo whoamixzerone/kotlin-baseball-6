@@ -19,10 +19,11 @@ class JudgeTest {
         val player = Player("425")
 
         // when
-        val result = judge.compare(player, mutableListOf(4, 2, 5))
+        val matchResult = judge.compare(player, mutableListOf(4, 2, 5))
+        val actual = matchResult.result()
 
         // then
-        assertThat(result).isEqualTo("3스트라이크")
+        assertThat(actual).isEqualTo("3스트라이크")
     }
 
     @Test
@@ -31,10 +32,11 @@ class JudgeTest {
         val player = Player("421")
 
         // when
-        val result = judge.compare(player, mutableListOf(4, 2, 5))
+        val matchResult = judge.compare(player, mutableListOf(4, 2, 5))
+        val actual = matchResult.result()
 
         // then
-        assertThat(result).isEqualTo("2스트라이크")
+        assertThat(actual).isEqualTo("2스트라이크")
     }
 
     @Test
@@ -43,10 +45,11 @@ class JudgeTest {
         val player = Player("461")
 
         // when
-        val result = judge.compare(player, mutableListOf(4, 2, 5))
+        val matchResult = judge.compare(player, mutableListOf(4, 2, 5))
+        val actual = matchResult.result()
 
         // then
-        assertThat(result).isEqualTo("1스트라이크")
+        assertThat(actual).isEqualTo("1스트라이크")
     }
 
     @Test
@@ -55,10 +58,11 @@ class JudgeTest {
         val player = Player("254")
 
         // when
-        val result = judge.compare(player, mutableListOf(4, 2, 5))
+        val matchResult = judge.compare(player, mutableListOf(4, 2, 5))
+        val actual = matchResult.result()
 
         // then
-        assertThat(result).isEqualTo("3볼")
+        assertThat(actual).isEqualTo("3볼")
     }
 
     @Test
@@ -67,10 +71,11 @@ class JudgeTest {
         val player = Player("456")
 
         // when
-        val result = judge.compare(player, mutableListOf(5, 4, 7))
+        val matchResult = judge.compare(player, mutableListOf(5, 4, 7))
+        val actual = matchResult.result()
 
         // then
-        assertThat(result).isEqualTo("2볼")
+        assertThat(actual).isEqualTo("2볼")
     }
 
     @Test
@@ -79,10 +84,11 @@ class JudgeTest {
         val player = Player("651")
 
         // when
-        val result = judge.compare(player, mutableListOf(4, 2, 5))
+        val matchResult = judge.compare(player, mutableListOf(4, 2, 5))
+        val actual = matchResult.result()
 
         // then
-        assertThat(result).isEqualTo("1볼")
+        assertThat(actual).isEqualTo("1볼")
     }
 
     @Test
@@ -91,10 +97,11 @@ class JudgeTest {
         val player = Player("451")
 
         // when
-        val result = judge.compare(player, mutableListOf(4, 2, 5))
+        val matchResult = judge.compare(player, mutableListOf(4, 2, 5))
+        val actual = matchResult.result()
 
         // then
-        assertThat(result).isEqualTo("1볼 1스트라이크")
+        assertThat(actual).isEqualTo("1볼 1스트라이크")
     }
 
     @Test
@@ -103,10 +110,11 @@ class JudgeTest {
         val player = Player("452")
 
         // when
-        val result = judge.compare(player, mutableListOf(4, 2, 5))
+        val matchResult = judge.compare(player, mutableListOf(4, 2, 5))
+        val actual = matchResult.result()
 
         // then
-        assertThat(result).isEqualTo("2볼 1스트라이크")
+        assertThat(actual).isEqualTo("2볼 1스트라이크")
     }
 
     @Test
@@ -115,9 +123,10 @@ class JudgeTest {
         val player = Player("136")
 
         // when
-        val result = judge.compare(player, mutableListOf(4, 2, 5))
+        val matchResult = judge.compare(player, mutableListOf(4, 2, 5))
+        val actual = matchResult.result()
 
         // then
-        assertThat(result).isEqualTo("낫싱")
+        assertThat(actual).isEqualTo("낫싱")
     }
 }

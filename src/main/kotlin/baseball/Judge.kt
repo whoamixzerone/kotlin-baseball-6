@@ -1,11 +1,13 @@
 package baseball
 
 class Judge {
-    fun compare(player: Player, computer: MutableList<Int>): MatchResult {
+    fun compare(player: Player, computer: List<Int>): MatchResult {
         var strike = 0
         var ball = 0
 
-        for ((i, number) in player.numbers.withIndex()) {
+        val playerNumbers = player.getNumbers()
+
+        for ((i, number) in playerNumbers.withIndex()) {
             if (number == computer[i]) {
                 strike++
             } else if (number in computer) {

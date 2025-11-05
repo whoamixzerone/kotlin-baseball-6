@@ -1,10 +1,10 @@
 package baseball
 
-class Player(val input: String) {
-    val numbers = mutableListOf<Int>()
+class Player(private val input: String) {
+    private val numbers = mutableListOf<Int>()
 
     init {
-        if (input.length > 3) {
+        if (input.length !in 1..3) {
             throw IllegalArgumentException("3자리 수를 입력하세요.")
         }
 
@@ -20,5 +20,9 @@ class Player(val input: String) {
 
             numbers.add(num)
         }
+    }
+
+    fun getNumbers(): List<Int> {
+        return numbers
     }
 }
